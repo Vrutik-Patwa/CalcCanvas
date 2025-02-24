@@ -1,6 +1,8 @@
+
+
 function App(){
 
-  return(<div className="bg-red">Hello</div>)
+  return <div className="">Hello 2</div>
 }
 
 export default App;

@@ -6,8 +6,17 @@
   ],
   "compilerOptions": {
     "baseUrl": ".",
+        "jsx": "react-jsx",
+         
     "paths": {
       "@/*": ["./src/*"]
     }
-  }
+
+  },
+  "include": [
+    "./lib/**/*"
+],
+"exclude": [
+  "node_modules"
+]
 }
