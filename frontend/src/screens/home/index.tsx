@@ -1,5 +1,7 @@
+// import React = require("react");
+
 import React, { useEffect, useRef, useState } from "react";
-import { SWATCHES } from "src/constant";
+import { SWATCHES } from "../../constant";
 import { ColorSwatch, Group } from "@mantine/core";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
@@ -14,6 +16,8 @@ interface GeneratedResult {
   expression: string;
   answer: string;
 }
+
+
 const Home = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const isDrawing = useRef(false);
@@ -23,6 +27,9 @@ const Home = () => {
   const [dictofVars, setDictofVars] = useState({});
   useEffect(() => {
     const canvas = canvasRef.current;
+
+    console.log("Hello", SWATCHES);
+
     if (reset) {
       resetCanvas();
       setReset(false);
@@ -45,7 +52,7 @@ const Home = () => {
         method: "post",
         url: `${import.meta.env.VITE_API_URL}/calculate`,
         data: {
-          image: canvas.toDataUrl("image.png"),
+          image: canvas.toDataURL("image.png"),
           dict_of_vars: dictofVars,
         },
       });
@@ -63,6 +70,10 @@ const Home = () => {
       }
     }
   };
+
+  // const debug = () => {
+  //   console.log("Hello");
+  // };
 
   const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
@@ -97,7 +108,7 @@ const Home = () => {
 
   return (
     <>
-      {/* <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-3 gap-2 cursor-pointer">
         <Button
           onClick={() => setReset(true)}
           className="z-20 bg-black text-white"
@@ -106,7 +117,27 @@ const Home = () => {
         >
           Reset
         </Button>
-      </div> */}
+        <Group className="z-20 bg-amber-500">
+
+        </Group>
+        {console.log(color)}
+        <Button
+          onClick={sendData}
+          className="z-20 bg-black text-white cursor-pointer"
+          variant="default"
+          color="black"
+        >
+          Calculate
+        </Button>
+        {/* <Button
+          onClick={debug}
+          className="z-20 bg-black text-white"
+          variant="default"
+          color="black"
+        >
+          Debug
+        </Button> */}
+      </div>
       <canvas
         ref={canvasRef}
         id="canvas"
