@@ -17,7 +17,6 @@ interface GeneratedResult {
   answer: string;
 }
 
-
 const Home = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const isDrawing = useRef(false);
@@ -25,6 +24,18 @@ const Home = () => {
   const [reset, setReset] = useState(false);
   const [result, setResult] = useState<GeneratedResult>();
   const [dictofVars, setDictofVars] = useState({});
+
+  const ColorSwatches = SWATCHES.map((colors) => {
+    return (
+      <div
+        key={colors}
+        className="rounded-full bg-transparent "
+        onClick={() => setColor(colors)}
+      >
+        <ColorSwatch color={colors} key={colors} />
+      </div>
+    );
+  });
   useEffect(() => {
     const canvas = canvasRef.current;
 
@@ -117,9 +128,9 @@ const Home = () => {
         >
           Reset
         </Button>
-        <Group className="z-20 bg-amber-500">
 
-        </Group>
+        <Group className="">{ColorSwatches}</Group>
+
         {console.log(color)}
         <Button
           onClick={sendData}
