@@ -29,7 +29,7 @@ const Home = () => {
     return (
       <div
         key={colors}
-        className="rounded-full bg-transparent "
+        className="rounded-full z-20 "
         onClick={() => setColor(colors)}
       >
         <ColorSwatch color={colors} key={colors} />
@@ -54,7 +54,7 @@ const Home = () => {
         ctx.lineWidth = 3; // For Brush size
       }
     }
-  }, []);
+  }, [reset]);
 
   const sendData = async () => {
     const canvas = canvasRef.current;
@@ -119,22 +119,21 @@ const Home = () => {
 
   return (
     <>
-      <div className="grid grid-cols-3 gap-2 cursor-pointer">
+      <div className="flex flex-row gap-2 items-center justify-between mx-10 my-5 cursor-pointer">
         <Button
           onClick={() => setReset(true)}
-          className="z-20 bg-black text-white"
+          className="z-20 bg-black text-white w-20 rounded-none "
           variant="default"
           color="black"
         >
           Reset
         </Button>
 
-        <Group className="">{ColorSwatches}</Group>
+        <Group className="z-20">{ColorSwatches}</Group>
 
-        {console.log(color)}
         <Button
           onClick={sendData}
-          className="z-20 bg-black text-white cursor-pointer"
+          className="z-20 bg-black text-white cursor-pointer w-20 rounded-none"
           variant="default"
           color="black"
         >
