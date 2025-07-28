@@ -59,9 +59,10 @@ const Home = () => {
   const sendData = async () => {
     const canvas = canvasRef.current;
     if (canvas) {
+      console.log("Sending data", import.meta.env.VITE_API_URL);
       const response = await axios({
         method: "post",
-        url: `${import.meta.env.VITE_API_URL}/calculate`,
+        url: `${import.meta.env.VITE_API_URL}/calculate/`,
         data: {
           image: canvas.toDataURL("image.png"),
           dict_of_vars: dictofVars,

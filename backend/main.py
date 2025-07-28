@@ -4,15 +4,15 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from constants import SERVER_URL,PORT,ENV
 from apps.calculator.routes import router as calculator_router
-@asynccontextmanager
-async def lifespan(app:FastAPI):
-    yield
+# @asynccontextmanager
+# async def lifespan(app:FastAPI):
+#     yield
 
-app = FastAPI(lifespan = lifespan)
+app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins = ["*"],
+        allow_origins=["http://localhost:5173"],
     allow_credentials = True,
     allow_methods = ["*"],
     allow_headers = ["*"],

@@ -8,7 +8,7 @@ from fastapi import APIRouter
 
 router = APIRouter()
 
-@router.post('')
+@router.post('/')
 async def run(data:ImageData):
     image_data = base64.b64decode(data.image.split(',')[1])
     image_bytes = BytesIO(image_data)
