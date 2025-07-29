@@ -25,7 +25,7 @@ app.add_middleware(
 async def health():
     return {'message':"Server is running"}
 
-app.include_router(calculator_router,prefix = '/calculate',tags = ['calculator'] )
+app.include_router(calculator_router,prefix = '/calculate/',tags = ['calculator'] )
 
 
 if __name__ == "__main__":
