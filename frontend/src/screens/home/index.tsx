@@ -1,9 +1,9 @@
 import { ColorSwatch, Group } from "@mantine/core";
-import { Button } from "@/components/ui/button";
-import { useEffect, useRef, useState } from "react";
+
+import { SetStateAction, useEffect, useRef, useState } from "react";
 import axios from "axios";
-import Draggable from "react-draggable";
-import { SWATCHES } from "@/constant";
+import { Button } from "../../components/ui/button";
+import { SWATCHES } from "../../constant";
 // import {LazyBrush} from 'lazy-brush';
 import React from "react";
 interface GeneratedResult {
@@ -245,11 +245,7 @@ export default function Home() {
 
       {latexExpression &&
         latexExpression.map((latex, index) => (
-          <div
-            key={index}
-            defaultPosition={latexPosition}
-            onStop={(e, data) => setLatexPosition({ x: data.x, y: data.y })}
-          >
+          <div key={index}>
             <div className="absolute p-2 text-white rounded shadow-md">
               <div className="latex-content">{latex}</div>
             </div>
