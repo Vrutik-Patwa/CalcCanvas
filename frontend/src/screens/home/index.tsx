@@ -2,11 +2,10 @@ import { ColorSwatch, Group } from "@mantine/core";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import Draggable, { DraggableCore } from "react-draggable";
+import Draggable from "react-draggable";
 import { SWATCHES } from "@/constant";
-import React from "react";
 // import {LazyBrush} from 'lazy-brush';
-
+import React from "react";
 interface GeneratedResult {
   expression: string;
   answer: string;
@@ -246,15 +245,15 @@ export default function Home() {
 
       {latexExpression &&
         latexExpression.map((latex, index) => (
-          // <Draggable
-          //   key={index}
-          //   defaultPosition={latexPosition}
-          //   onStop={(e, data) => setLatexPosition({ x: data.x, y: data.y })}
-          // >
-          <div className="absolute p-2 text-white rounded shadow-md">
-            <div className="latex-content">{latex}</div>
+          <div
+            key={index}
+            defaultPosition={latexPosition}
+            onStop={(e, data) => setLatexPosition({ x: data.x, y: data.y })}
+          >
+            <div className="absolute p-2 text-white rounded shadow-md">
+              <div className="latex-content">{latex}</div>
+            </div>
           </div>
-          // </Draggable>
         ))}
     </>
   );

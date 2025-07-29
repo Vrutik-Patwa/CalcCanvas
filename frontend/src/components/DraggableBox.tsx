@@ -1,4 +1,4 @@
-import React from "react";
+import R
 
 const DraggableBox = React.forwardRef<
   HTMLDivElement,
