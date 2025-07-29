@@ -5,18 +5,15 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
+    "module": "esnext", // for import meta tag
+    "target": "esnext",
     "baseUrl": ".",
-        "jsx": "react-jsx",
-         
+    "jsx": "react-jsx",
+
     "paths": {
       "@/*": ["./src/*"]
     }
-
   },
-  "include": [
-    "./lib/**/*"
-],
-"exclude": [
-  "node_modules"
-]
+  "include": ["./lib/**/*"],
+  "exclude": ["node_modules"]
 }
