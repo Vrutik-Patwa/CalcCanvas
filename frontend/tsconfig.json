@@ -6,7 +6,7 @@
   ],
   "compilerOptions": {
     "module": "esnext", // for import meta tag
-    "target": "esnext",
+    "target": "es2020",
     "baseUrl": ".",
     "jsx": "react-jsx",
 
